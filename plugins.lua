@@ -4,9 +4,10 @@ return {
 
 	{
 		"neovim/nvim-lspconfig",
-    dependencies = {
-      "RRethy/vim-illuminate",
-    },
+		dependencies = {
+			"RRethy/vim-illuminate",
+			"github/copilot.vim",
+		},
 		config = function()
 			require("plugins.configs.lspconfig")
 			require("custom.configs.lsp")
@@ -14,17 +15,10 @@ return {
 	},
 
 	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		virtual_text = true,
-		opts = {},
-	},
-
-	{
 		"mfussenegger/nvim-lint",
-    dependencies = {
-      "folke/trouble.nvim",
-    },
+		dependencies = {
+			"folke/trouble.nvim",
+		},
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("custom.configs.lsp.nvim-lint")
@@ -58,14 +52,20 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		opts = overrides.telescope,
+		lazy = false,
+		config = function()
+			require("telescope").setup()
+			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("ui-select")
+		end,
+	},
+
+	{
+		"telescope.nvim",
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
 			build = "make",
-			lazy = false,
-			config = function()
-				require("telescope").load_extension("fzf")
-				require("telescope").load_extension("ui-select")
-			end,
 		},
 	},
 
@@ -92,10 +92,9 @@ return {
 
 	{
 		"rcarriga/nvim-dap-ui",
-		config = function()
-			require("dapui").setup()
-		end,
-		requires = { "mfussenegger/nvim-dap" },
+		dependencies = {
+			"theHamsta/nvim-dap-virtual-text",
+		},
 	},
 
 	{
@@ -107,25 +106,11 @@ return {
 
 	{
 		"jay-babu/mason-nvim-dap.nvim",
-		event = "VeryLazy",
-		requires = {
-			"williamboman/mason.nvim",
-			"mfussenegger/nvim-dap",
-		},
 		opts = {
-			-- handlers = {},
 			automatic_installation = {
 				exclude = { "cppdbg" },
 			},
 		},
-	},
-
-	{
-		"theHamsta/nvim-dap-virtual-text",
-		config = function()
-			require("nvim-dap-virtual-text").setup()
-		end,
-		requires = { "mfussenegger/nvim-dap" },
 	},
 
 	-- better bdelete, close buffers without closing windows
@@ -140,19 +125,6 @@ return {
 
 	{
 		"vimwiki/vimwiki",
-	},
-
-	{
-		"github/copilot.vim",
-		lazy = false,
-		config = function()
-			-- Mapping tab is already used by NvChad
-			vim.g.copilot_no_tab_map = true
-			vim.g.copilot_assume_mapped = true
-			--vim.g.copilot_tab_fallback = ""
-			-- The mapping is set to other key, see custom/lua/mappings
-			-- or run <leader>ch to see copilot mapping section
-		end,
 	},
 
 	{
@@ -193,13 +165,6 @@ return {
 	},
 
 	{
-		"RRethy/vim-illuminate",
-		config = function()
-			require("illuminate")
-		end,
-	},
-
-	{
 		"tpope/vim-fugitive",
 	},
 
@@ -211,6 +176,24 @@ return {
 	},
 
 	{
-		"nvim-telescope/telescope-ui-select.nvim",
+		"RRethy/vim-illuminate",
+		config = function()
+			require("illuminate")
+		end,
+	},
+
+	{
+		"github/copilot.vim",
+		config = function()
+			vim.g.copilot_no_tab_map = true
+			vim.g.copilot_assume_mapped = true
+		end,
+	},
+
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		virtual_text = true,
+		opts = {},
 	},
 }
