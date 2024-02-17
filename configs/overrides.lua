@@ -11,6 +11,15 @@ M.treesitter = {
 		"cpp",
 		"json",
 		"rust",
+    "bash",
+    "python",
+    "yaml",
+    "toml",
+    "dockerfile",
+    "go",
+    "javascript",
+    "tsx",
+    "json",
 	},
 }
 
