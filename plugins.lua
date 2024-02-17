@@ -183,6 +183,14 @@ return {
 		ft = { "markdown" },
 	},
 
+	{
+		"ggandor/leap.nvim",
+    lazy = false,
+		config = function()
+			require("leap").add_default_mappings()
+		end,
+	},
+
 	-- To make a plugin not be loaded
 	-- {
 	--   "NvChad/nvim-colorizer.lua",
