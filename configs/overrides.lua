@@ -9,17 +9,16 @@ M.treesitter = {
 		"typescript",
 		"c",
 		"cpp",
-		"json",
 		"rust",
-    "bash",
-    "python",
-    "yaml",
-    "toml",
-    "dockerfile",
-    "go",
-    "javascript",
-    "tsx",
-    "json",
+		"bash",
+		"python",
+		"yaml",
+		"toml",
+		"dockerfile",
+		"go",
+		"javascript",
+		"tsx",
+		"json",
 	},
 }
 
@@ -34,7 +33,7 @@ M.mason = {
 		"css-lsp",
 		"html-lsp",
 		"typescript-language-server",
-		"deno",
+		-- "deno",
 
 		-- C / C++
 		"clangd",
@@ -47,20 +46,24 @@ M.mason = {
 		"shellharden",
 		"bash-language-server",
 		"bash-debug-adapter",
-		"awk-language-server",
 
 		-- python
 		"black",
 		"ruff",
+    "pyright",
 
 		-- markdown
 		"markdownlint",
+    "marksman",
 
 		-- json
-		"json-languageserver",
+    "json-lsp",
 		"jsonlint",
 
 		"prettier",
+
+    -- rust
+    "rust-analyzer",
 
 		-- go
 		--[[

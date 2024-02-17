@@ -7,7 +7,18 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
 
-local servers = { "html", "cssls", "tsserver", "clangd", "gopls" }
+local servers = {
+  "html",
+	"cssls",
+  "tsserver",
+	"clangd",
+	"gopls",
+	"jsonls",
+  "bashls",
+	"rust_analyzer",
+	"pyright",
+  "marksman",
+}
 
 for _, lsp in ipairs(servers) do
 	local opts = {
@@ -29,6 +40,5 @@ local config = {
 }
 
 vim.diagnostic.config(config)
-
 
 return M

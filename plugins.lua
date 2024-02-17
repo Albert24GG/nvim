@@ -1,7 +1,6 @@
 local overrides = require("custom.configs.overrides")
 
 return {
-
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -50,14 +49,16 @@ return {
 	},
 
 	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+	},
+
+	"nvim-telescope/telescope-ui-select.nvim",
+
+	{
 		"nvim-telescope/telescope.nvim",
 		opts = overrides.telescope,
 		lazy = false,
-		config = function()
-			require("telescope").setup()
-			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("ui-select")
-		end,
 	},
 
 	{
@@ -65,8 +66,12 @@ return {
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
-			build = "make",
 		},
+		config = function()
+			require("telescope").setup()
+			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("ui-select")
+		end,
 	},
 
 	{
