@@ -9,7 +9,7 @@ lint.linters_by_ft = {
   markdown = { "markdownlint" },
   json = { "jsonlint" },
   yaml = { "yamllint" },
-  rust = { "cargo" },
+  rust = { "clippy" },
   go = { "golangcilint" },
 }
 

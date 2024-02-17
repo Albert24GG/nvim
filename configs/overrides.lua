@@ -31,7 +31,6 @@ M.mason = {
 		"clangd",
 		"clang-format",
 		"cmake-language-server",
-		"cpplint",
 		"cpptools",
 
 		-- shell
@@ -42,7 +41,7 @@ M.mason = {
 		"awk-language-server",
 
 		-- python
-		"pyright",
+    "black",
 		"ruff",
 
     -- markdown 
@@ -52,7 +51,10 @@ M.mason = {
     "json-languageserver",
     "jsonlint",
 
+    "prettier",
+
 		-- go
+    --[[
 		"delve",
 		"go-debug-adapter",
 		"gofumpt",
@@ -63,6 +65,7 @@ M.mason = {
 		"golines",
 		"gomodifytags",
 		"gopls",
+    ]]--
 	},
 }
 
