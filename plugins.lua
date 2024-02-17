@@ -64,6 +64,7 @@ return {
 			lazy = false,
 			config = function()
 				require("telescope").load_extension("fzf")
+				require("telescope").load_extension("ui-select")
 			end,
 		},
 	},
@@ -207,5 +208,9 @@ return {
 		config = function()
 			require("Comment").setup()
 		end,
+	},
+
+	{
+		"nvim-telescope/telescope-ui-select.nvim",
 	},
 }
