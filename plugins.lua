@@ -4,6 +4,9 @@ return {
 
 	{
 		"neovim/nvim-lspconfig",
+    dependencies = {
+      "RRethy/vim-illuminate",
+    },
 		config = function()
 			require("plugins.configs.lspconfig")
 			require("custom.configs.lsp")
@@ -13,13 +16,15 @@ return {
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		lazy = false,
 		virtual_text = true,
 		opts = {},
 	},
 
 	{
 		"mfussenegger/nvim-lint",
+    dependencies = {
+      "folke/trouble.nvim",
+    },
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("custom.configs.lsp.nvim-lint")
