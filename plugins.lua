@@ -185,9 +185,16 @@ return {
 
 	{
 		"ggandor/leap.nvim",
-    lazy = false,
+		lazy = false,
 		config = function()
 			require("leap").add_default_mappings()
+		end,
+	},
+
+	{
+		"RRethy/vim-illuminate",
+		config = function()
+			require("illuminate")
 		end,
 	},
 
