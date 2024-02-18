@@ -2,41 +2,39 @@ local M = {}
 
 local merge_tb = vim.tbl_deep_extend
 
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 
 local servers = {
   "html",
-	"cssls",
+  "cssls",
   "tsserver",
-	"clangd",
-	"gopls",
-	"jsonls",
+  "clangd",
+  "gopls",
+  "jsonls",
   "bashls",
-	"rust_analyzer",
-	"pyright",
+  "rust_analyzer",
+  "pyright",
   "marksman",
 }
 
 for _, lsp in ipairs(servers) do
-	local opts = {
-		on_attach = on_attach,
-		capabilities = capabilities,
-	}
+  local opts = {
+    capabilities = capabilities,
+  }
 
-	local exists, settings = pcall(require, "custom.configs.lsp.server-settings." .. lsp)
-	if exists then
-		opts = merge_tb("force", settings, opts)
-	end
+  local exists, settings = pcall(require, "custom.configs.lsp.server-settings." .. lsp)
+  if exists then
+    opts = merge_tb("force", settings, opts)
+  end
 
-	lspconfig[lsp].setup(opts)
+  lspconfig[lsp].setup(opts)
 end
 
 local config = {
-	virtual_text = true,
-	signs = true,
+  virtual_text = true,
+  signs = true,
 }
 
 vim.diagnostic.config(config)
