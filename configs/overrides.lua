@@ -19,6 +19,9 @@ M.treesitter = {
 		"javascript",
 		"tsx",
 		"json",
+    "markdown",
+    "markdown_inline",
+    "regex",
 	},
 }
 
@@ -170,15 +173,6 @@ M.noice = {
 			filter = { event = "notify", find = "No information available" },
 			opts = { skip = true },
 		},
-	},
-	override = {
-		["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-		["vim.lsp.util.stylize_markdown"] = true,
-		["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-	},
-	presets = {
-		lsp_doc_border = true,
-		command_palette = true, -- position the cmdline and popupmenu together
 	},
 }
 
