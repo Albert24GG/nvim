@@ -6,6 +6,12 @@ return {
     dependencies = {
       "RRethy/vim-illuminate",
       "github/copilot.vim",
+      "p00f/clangd_extensions.nvim",
+    },
+    opts = {
+      inlay_hints = {
+        enabled = true,
+      },
     },
     config = function()
       require "plugins.configs.lspconfig"
